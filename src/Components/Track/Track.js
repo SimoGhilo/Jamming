@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
+
 import './Track.css';
 
 
@@ -9,6 +9,7 @@ export class Track extends React.Component {
         super(props)
         this.addTrack = this.addTrack.bind(this)
         this.removeTrack = this.removeTrack.bind(this)
+
     }
 
     renderAction () {
@@ -16,11 +17,11 @@ export class Track extends React.Component {
 
         if (this.props.isRemoval) {
             
-            <button onClick={this.removeTrack}>-</button>
+            return (<button onClick={this.removeTrack}>Remove -</button>)
 
         } else {
 
-            <button onClick={this.addTrack}>+</button>
+            return (<button onClick={this.addTrack}>Add +</button>)
 
         }
         
@@ -32,7 +33,7 @@ export class Track extends React.Component {
     }
 
     removeTrack () {
-
+        
         this.props.onRemove(this.props.track)
     }
 
@@ -45,7 +46,7 @@ export class Track extends React.Component {
                     <h3>{this.props.track.name}</h3>
                     <p>{this.props.track.artist} , {this.props.track.artist}</p>
                 </div>
-                <button className="Track-action">+ or - will go here</button>
+                <button className="Track-action">Add + or -</button>
             </div>
         )
     }

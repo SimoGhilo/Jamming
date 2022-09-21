@@ -1,6 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
-import Tracklist from '/Users/Simone Ghilotti/jamming/src/Components/Tracklist/Tracklist';
+import {Tracklist} from '../Tracklist/Tracklist';
 import './Playlist.css';
 
 export class Playlist extends React.Component {

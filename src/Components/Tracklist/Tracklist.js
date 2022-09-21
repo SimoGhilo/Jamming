@@ -1,6 +1,5 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
-import Track from '/Users/Simone Ghilotti/jamming/src/Components/Track/Track';
+import {Track} from '../Track/Track';
 import './Tracklist.css';
 
 export class Tracklist extends React.Component{

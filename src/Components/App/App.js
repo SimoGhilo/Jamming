@@ -1,9 +1,9 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React from 'react';
-import Playlist from '/Users/Simone Ghilotti/jamming/src/Components/Playlist/Playlist';
-import SearchBar from '/Users/Simone Ghilotti/jamming/src/Components/SearchBar/SearchBar';
-import SearchResults from '/Users/Simone Ghilotti/jamming/src/Components/SearchResults/SearchResults';
+import {Playlist} from '../Playlist/Playlist';
+import {SearchBar} from '../SearchBar/SearchBar';
+import {SearchResults} from '../SearchResults/SearchResults';
 import Spotify from '../../util/Spotify';
 
 
