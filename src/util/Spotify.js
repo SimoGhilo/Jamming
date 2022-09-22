@@ -3,7 +3,7 @@ let accessToken;
  
  
 const clientId = '8bd95acd81024f088ac637e7d47d8077';
-const redirectUri = 'http://localhost:3000'
+const redirectUri = 'http://jammingghilotti.surge.sh'
 const Spotify = {
 
 
@@ -34,11 +34,11 @@ const Spotify = {
 
     savePlayList(name,trackUris) {
         if(!name || !trackUris.length) {
-            return
+            return;
         }
 
         const accessToken = Spotify.getAccessToken();
-        const headers = {Authorization: `${accessToken}`}
+        const headers = {Authorization: `Bearer ${accessToken}`}
         let userId;
         return fetch('https://api.spotify.com/v1/me',{headers:headers}).then(response => 
         response.json()).then(responseJson => {
@@ -49,8 +49,8 @@ const Spotify = {
                 method: 'POST',
                 body: JSON.stringify({name:name})
             }).then(response =>{
-                response.json()
-            }).then(JSONResponse =>{
+                return response.json()
+            }).then((JSONResponse) => {
                 const playlistId = JSONResponse.id;
                 return fetch(`https://api.spotify.com/v1/me/v1/users/${userId}/playlists/${playlistId}/tracks`, 
                 {headers: headers,

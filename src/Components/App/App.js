@@ -29,15 +29,15 @@ export class App extends React.Component {
     let tracks = this.state.playlistTracks;
     if (tracks.find(savedTrack => savedTrack.id === track.id)) {
       return;
-    } else {
+    } 
       tracks.push(track);
       this.setState({playlistTracks:tracks})
-    }
+    
   }
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks.filter(chosenTrack => chosenTrack.id !== track.id)
+    tracks = tracks.filter(chosenTrack => chosenTrack.id !== track.id)
     this.setState({playlistTracks:tracks});
 
   }
@@ -48,13 +48,15 @@ export class App extends React.Component {
   }
 
   savePlaylist () {
-
+    
     const trackUris = this.state.playlistTracks.map(track => track.uri)
     Spotify.savePlayList(this.state.playlistName,trackUris).then(()=>{
-      this.setState({
-        playlistName:'New Playlist',
-        playlistTracks: []
-      })
+
+      
+        this.setState({
+          playlistName:'New Playlist',
+          playlistTracks: []
+        })
     })
   }
 
@@ -77,7 +79,7 @@ export class App extends React.Component {
                 <SearchResults SearchResults={this.state.SearchResults} onAdd={this.addTrack}/>
                 <Playlist playlistName={this.state.playlistName}
                   playlistTracks={this.state.playlistTracks} onRemove={this.removeTrack}
-                  onNamechange={this.updatePlaylistName}
+                  onNameChange={this.updatePlaylistName}
                   onSave={this.savePlaylist}/>
               </div>
           </div>
